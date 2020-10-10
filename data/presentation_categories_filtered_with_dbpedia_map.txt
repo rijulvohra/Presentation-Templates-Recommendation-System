@@ -1,0 +1,20 @@
+nature leaves flowers fire buterflies tree animals rainbow sun sunset water stone-objects snow-objects , Animal Plant BodyOfWater FloweringPlant
+art , Artist
+education , EducationalInstitution
+engineering industrial , Infrastructure
+games , Cartoon Comic
+sports sports-2 , SportsTeam SportsEvent SportsTeamSeason
+technology , Software
+astrology-astronomy stars , CelestialBody Satellite
+history literature , PeriodicalLiterature
+transportation , RouteOfTransportation
+music , MusicalWork Song MusicalArtist
+food-drinks-ppt
+business
+content-marketing marketing
+holidays-in-the-year fathers-day human-race-day womens-day childrens-day saint-valentines-day mothers-day new-year presidents-day thanksgiving-day
+science
+love-hearts-couples wedding-ppt-by-topics
+ink pencil poster
+agriculture ecology-recycle
+

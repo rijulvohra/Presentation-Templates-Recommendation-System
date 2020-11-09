@@ -1,3 +1,4 @@
+# This file runs though the template directory and removes irrelevant .png filename characters.
 import os
 
 rootDir = './presentation_template_data'

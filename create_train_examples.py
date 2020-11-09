@@ -1,3 +1,5 @@
+# This file reads in the topic png pairs and the training text to create
+# positive and negative testing data.
 import random
 import csv
 
@@ -29,23 +31,26 @@ def main():
 
         output_file.write('text, topic, image label, match\n')
         topics = list(topic_pngs_dict.keys())
+        missing_topics = set()
         for text_line in csv_reader:
-            print(text_line)
             topic = text_line[1]
             if topic not in topic_pngs_dict:
-                print(topic, "not in dict")
+                if topic not in missing_topics:
+                    print(topic, "does not have any associated .pngs")
+                    missing_topics.add(topic)
             else:
                 postive_png_name = random.choice(topic_pngs_dict[topic])
-                output_file.write('{},{},{},1\n'.format(text_line[0], topic, postive_png_name))
+                output_file.write('"{}",{},{},1\n'.format(text_line[0], topic, postive_png_name))
 
                 # Get a negative image
                 negative_topic = random.choice(topics)
                 while (negative_topic == topic):
                     negative_topic = random.choice(list(topic_pngs_dict))
                 negative_png_name = random.choice(topic_pngs_dict[negative_topic])
-                output_file.write('{},{},{},0\n'.format(text_line[0], negative_topic, negative_png_name))
+                output_file.write('"{}",{},{},0\n'.format(text_line[0], negative_topic, negative_png_name))
 
     print("Finished writing", train_examples_filename)
+
 
 if __name__ == '__main__':
     main()

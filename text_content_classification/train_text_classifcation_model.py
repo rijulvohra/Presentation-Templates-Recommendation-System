@@ -74,7 +74,7 @@ def saveModel(model, model_suffix, args):
     model.save_pretrained(os.path.join(args.output_dir, "model" + str(model_suffix)))
 
     # Save the model configuration:
-    with open(os.path.join(args.output_dir, "model" + str(model_suffix) + "_config.json"), "w") as f:
+    with open(os.path.join(args.output_dir, "model" + str(model_suffix) + "_params.json"), "w") as f:
         json.dump(vars(args), f)
 
 def train(model, train_data_loader, val_data_loader, args):
@@ -126,10 +126,6 @@ def train(model, train_data_loader, val_data_loader, args):
 
             # Update learning rate:
             scheduler.step()
-
-            if cur_step % 10 == 0:
-                elapsed_time = format_time(time.time() - start_time)
-                print("Epoch = ", cur_epoch, ", Batch = ", cur_step, ", Time elapsed = ", elapsed_time)
 
         avg_train_loss = total_train_loss / len(train_data_loader)
         total_train_time = format_time(time.time() - start_time)
@@ -201,13 +197,13 @@ def train(model, train_data_loader, val_data_loader, args):
     print("Total time taken = ", total_time)
 
     # Save the training logs:
-    with open(os.path.join(args.output_dir, "train_logs.json"), "w") as f:
+    with open(os.path.join(args.output_dir, "training_logs.json"), "w") as f:
         json.dump(training_logs, f)
 
-    # Save the model:
-    print("Best model epoch = ", best_model_epoch)
-    model.load_state_dict(best_model_state_dict)
-    saveModel(model, "_best", args)
+    # # Save the model:
+    # print("Best model epoch = ", best_model_epoch)
+    # model.load_state_dict(best_model_state_dict)
+    # saveModel(model, "_best", args)
 
 
 if __name__ == "__main__":
@@ -215,7 +211,7 @@ if __name__ == "__main__":
 
     parser.add_argument('--data_dir', type=str, default="../data/topic_classification_data",
                         help='Path for Data files')
-    parser.add_argument('--output_dir', type=str, default="../outputs/distil_bert_ckpts",
+    parser.add_argument('--output_dir', type=str, default="../outputs/distil_bert_ckpts_v2",
                         help='Path to save the checkpoints')
     parser.add_argument('--model_name_or_path', type=str, default="distilbert-base-uncased",
                         help='Model name or Path')

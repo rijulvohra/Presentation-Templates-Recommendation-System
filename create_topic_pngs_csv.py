@@ -2,8 +2,8 @@
 # csv file with topic and png pairs.
 import os
 
-topic_pngs_filename = 'topic_pngs.csv'
-root_dir = './presentation_template_data_cleaned/'
+topic_pngs_filename = 'topic_pngs_v2.csv'
+root_dir = './presentation_template_data_v2/'
 
 print("Reading", root_dir)
 with open(topic_pngs_filename, 'w') as outfile:

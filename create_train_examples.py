@@ -17,9 +17,9 @@ def read_topic_pngs_dict(topic_pngs_filename):
 
 
 def main():
-    topic_pngs_filename = 'topic_pngs.csv'
+    topic_pngs_filename = 'topic_pngs_v2.csv'
     train_text_filename = 'train_text.csv'
-    train_examples_filename = 'train_examples.csv'
+    train_examples_filename = 'train_examples_v2.csv'
     topic_pngs_dict = read_topic_pngs_dict(topic_pngs_filename)
 
     # For each line in the training text file create a positive and negative random training sample.

@@ -147,7 +147,6 @@ class RecommenderDataset(Dataset):
             raise ValueError("Invalid value for type path!")
 
         df_data = pd.read_csv(data_path)
-        df_data = df_data.iloc[0:100]
         for idx, cur_row in tqdm(df_data.iterrows(), total=df_data.shape[0], desc="LOG: Loading Text data"):
             try:
                 cur_text = cur_row["text"]
